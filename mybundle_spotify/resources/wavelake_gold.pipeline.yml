@@ -1,0 +1,12 @@
+# Lakeflow Declarative Pipeline for the gold layer (DimUser, DimTrack, DimDate, FactStream).
+resources:
+  pipelines:
+    wavelake_gold:
+      name: wavelake_gold
+      catalog: ${var.catalog}
+      schema: gold
+      serverless: true
+      root_path: "../src/gold/dlt"
+      libraries:
+        - glob:
+            include: ../src/gold/dlt/transformations/**
